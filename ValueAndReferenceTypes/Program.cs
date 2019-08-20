@@ -63,6 +63,7 @@ namespace ValueAndReferenceTypes
             Console.WriteLine("\n Changed p1.X\n");
             p1.Display();
             p2.Display();
+            Console.WriteLine();
         }
 
         static void ReferenceTypeAssignment()
@@ -80,6 +81,7 @@ namespace ValueAndReferenceTypes
             Console.WriteLine("\n=> Changed p1.X\n");
             p1.Display();
             p2.Display();
+            Console.WriteLine();
         }
     }
 }
