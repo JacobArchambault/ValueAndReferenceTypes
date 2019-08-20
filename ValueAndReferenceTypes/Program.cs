@@ -8,13 +8,6 @@ namespace ValueAndReferenceTypes
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            ValueTypeAssignment();
-            ReferenceTypeAssignment();
-            Console.ReadLine();
-        }
-
         struct Point
         {
             public int X;
@@ -44,6 +37,35 @@ namespace ValueAndReferenceTypes
             {
                 Console.WriteLine("X = {0}, Y = {1}", X, Y);
             }
+        }
+
+        struct Rectangle
+        {
+            // The Rectangle structure contains a reference type member.
+            public ShapeInfo RectInfo;
+
+            public int RectTop, RectLeft, RectBottom, RectRight;
+
+            public Rectangle(string info, int top, int left, int bottom, int right)
+            {
+                RectInfo = new ShapeInfo(info);
+                RectTop = top;
+                RectBottom = bottom;
+                RectLeft = left;
+                RectRight = right;
+            }
+
+            public void Display()
+            {
+                Console.WriteLine("String = {0}, Top = {1}, Bottom = {2}, Left = {3}, Right = {4}", 
+                    RectInfo.InfoString, RectTop, RectBottom, RectLeft, RectRight);
+            }
+        }
+        static void Main(string[] args)
+        {
+            ValueTypeAssignment();
+            ReferenceTypeAssignment();
+            Console.ReadLine();
         }
 
         // Assigning two intrinsic value types results in two independent variables on the stack.
@@ -83,5 +105,7 @@ namespace ValueAndReferenceTypes
             p2.Display();
             Console.WriteLine();
         }
+
+
     }
 }
