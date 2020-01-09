@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ValueAndReferenceTypes
 {
@@ -61,7 +57,7 @@ namespace ValueAndReferenceTypes
                     RectInfo.InfoString, RectTop, RectBottom, RectLeft, RectRight);
             }
         }
-        static void Main(string[] args)
+        static void Main()
         {
             ValueTypeAssignment();
             ReferenceTypeAssignment();
