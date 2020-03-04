@@ -1,4 +1,4 @@
-﻿using System;
+﻿using static System.Console;
 
 namespace ValueAndReferenceTypes
 {
@@ -29,10 +29,7 @@ namespace ValueAndReferenceTypes
             }
 
             // Display the current position.
-            public void Display()
-            {
-                Console.WriteLine("X = {0}, Y = {1}", X, Y);
-            }
+            public void Display() => WriteLine($"X = {X}, Y = {Y}");
         }
 
         struct Rectangle
@@ -51,24 +48,20 @@ namespace ValueAndReferenceTypes
                 RectRight = right;
             }
 
-            public void Display()
-            {
-                Console.WriteLine("String = {0}, Top = {1}, Bottom = {2}, Left = {3}, Right = {4}", 
-                    RectInfo.InfoString, RectTop, RectBottom, RectLeft, RectRight);
-            }
+            public void Display() => WriteLine($"String = {RectInfo.InfoString}, Top = {RectTop}, Bottom = {RectBottom}, Left = {RectLeft}, Right = {RectRight}");
         }
         static void Main()
         {
             ValueTypeAssignment();
             ReferenceTypeAssignment();
             ValueTypeContainingRefType();
-            Console.ReadLine();
+            ReadLine();
         }
 
         // Assigning two intrinsic value types results in two independent variables on the stack.
         static void ValueTypeAssignment()
         {
-            Console.WriteLine("Assigning value types \n");
+            WriteLine("Assigning value types \n");
 
             Point p1 = new Point(10, 10);
             Point p2 = p1;
@@ -79,15 +72,15 @@ namespace ValueAndReferenceTypes
 
             // Change p1.X and print again. p2.X is not changed.
             p1.X = 100;
-            Console.WriteLine("\n Changed p1.X\n");
+            WriteLine("\n Changed p1.X\n");
             p1.Display();
             p2.Display();
-            Console.WriteLine();
+            WriteLine();
         }
 
         static void ReferenceTypeAssignment()
         {
-            Console.WriteLine("Assigning reference types\n");
+            WriteLine("Assigning reference types\n");
             PointRef p1 = new PointRef(10, 10);
             PointRef p2 = p1;
 
@@ -97,31 +90,31 @@ namespace ValueAndReferenceTypes
 
             // Change p1.X and print again.
             p1.X = 100;
-            Console.WriteLine("\n=> Changed p1.X\n");
+            WriteLine("\n=> Changed p1.X\n");
             p1.Display();
             p2.Display();
-            Console.WriteLine();
+            WriteLine();
         }
 
         static void ValueTypeContainingRefType()
         {
             // Create the first Rectangle.
-            Console.WriteLine("-> Creating r1");
+            WriteLine("-> Creating r1");
             Rectangle r1 = new Rectangle("First Rect", 10, 10, 50, 50);
 
             // Now assign a new Rectangle to r1.
-            Console.WriteLine("-> Assigning r2 to r1");
+            WriteLine("-> Assigning r2 to r1");
             Rectangle r2 = r1;
 
             // Change some values of r2.
-            Console.WriteLine("-> Changing values of r2");
+            WriteLine("-> Changing values of r2");
             r2.RectInfo.InfoString = "This is new info!";
             r2.RectBottom = 4444;
 
             // Print values of both rectangles.
             r1.Display();
             r2.Display();
-            Console.WriteLine();
+            WriteLine();
         }
     }
 }
